@@ -1,6 +1,42 @@
-<div class="row">
-  <div class="col-xs-12 col-md-6"  >
+<div class="row" ng-controller="GoatsIndexController as goatsIndexCtrl">
+  <div class="col-xs-12 col-md-6">
+    <label for="name">Searchy by Goat's Name:</label>
+    <input type="text" class="form-control" placeholder="By Goat's Name" ng-model="search.name">
+    <label for="color">Searchy by Goat's Color:</label>
+    <input type="text" class="form-control" placeholder="By Goat's color" ng-model="search.color">
+    <label for="any">Searchy by any attribute:</label>
+    <input type="text" class="form-control" placeholder="New album artist" ng-model="search.$">
+    <br>
+    <div ng-repeat="goat in goatsIndexCtrl.goats | filter:search | orderBy: '+name'">
+      <div class="thumbnail">
+          <img src={{goat.image_url}} alt="">
+          <h2>{{goat.name}}</h2>
+          <a ng-href="/goats/{{goat.id}}" class="btn btn-primary">Show me this Goat!</a>
+      </div>
     <!-- repeat all goats and display them (just use picture and name) -->
     <!-- link to each goat using ng-href -->
   </div>
-</div>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <form ng-submit="goatsIndexCtrl.createGoat()">
+      <div class="form-group">
+        <label for="name">Create a new Goat</label>
+        <input type="text" class="form-control" id="newGoatName"  ng-model="goatsIndexCtrl.newGoat.name" placeholder="Name of Goat" value="">
+      </div>
+      <div class="form-group">
+        <label for="color">Goat Color</label>
+        <input type="text" class="form-control" id="newGoatColor" ng-model="goatsIndexCtrl.newGoat.color" placeholder="Name of Color" value="">
+      </div>
+      <div class="form-group">
+        <label for="birthdate">Birthdate</label>
+        <input type="text" class="form-control" id="newGoatColor" ng-model="goatsIndexCtrl.newGoat.birthdate" placeholder="Birthday" value="">
+      </div>
+      <div class="form-group">
+        <label for="image_url">Image URL</label>
+        <input type="text" class="form-control" id="newGoatColor" ng-model="goatsIndexCtrl.newGoat.image_url" placeholder="Image Link" value="">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <!-- CREATING A FORM FOR A NEW GOAT -->
+  </div>
+</div><!-- END OF NG-CONTROLLER -->

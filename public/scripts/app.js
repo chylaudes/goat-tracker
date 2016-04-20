@@ -11,6 +11,11 @@ function config(   $routeProvider,   $locationProvider  ) {
       controllerAs: 'goatsIndexCtrl',
       controller: 'GoatsIndexController'
     })
+    .when('/goats/:id', {
+       templateUrl: '/templates/goats-show.html',
+       controllerAs: 'goatsShowCtrl',
+       controller: 'GoatsShowController'
+     })
     .otherwise({redirectTo: '/'});
 
   $locationProvider.html5Mode({
