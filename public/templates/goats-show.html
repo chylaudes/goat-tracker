@@ -1,28 +1,27 @@
 <div class="row" ng-controller="GoatsShowController as goatsShowCtrl">
-<img src={{goatsShowCtrl.goat.image_url}} alt="">
-<input ng-show="editing" ng-model="goatsShowCtrl.goat.name" type="text" class="form-control input-md">
-<input ng-show="editing" ng-model="goatsShowCtrl.goat.color" type="text" class="form-control input-md">
-<input ng-show="editing" ng-model="goatsShowCtrl.goat.birthdate" type="text" class="form-control input-md">
-<input ng-show="editing" ng-model="goatsShowCtrl.goat.image_url" type="text" class="form-control input-md">
-<h1 ng-hide="editing">Name: {{goatsShowCtrl.goat.name}}</h1>
-<h2 ng-hide="editing">Age: {{goatsShowCtrl.goat.age}} year(s) old</h2>
-<h2 ng-hide="editing">Color: {{goatsShowCtrl.goat.color}}</h2>
-<h2 ng-hide="editing">Birth Date: {{goatsShowCtrl.goat.birthdate}}</h2>
+  <img src={{goatsShowCtrl.goat.image_url}} alt="">
+  <input ng-show="editing" ng-model="goatsShowCtrl.goat.name" type="text" class="form-control input-md">
+  <input ng-show="editing" ng-model="goatsShowCtrl.goat.color" type="text" class="form-control input-md">
+  <input ng-show="editing" ng-model="goatsShowCtrl.goat.birthdate" type="text" class="form-control input-md">
+  <input ng-show="editing" ng-model="goatsShowCtrl.goat.image_url" type="text" class="form-control input-md">
+  <h1 ng-hide="editing">Name: {{goatsShowCtrl.goat.name}}</h1>
+  <h2 ng-hide="editing">Age: {{goatsShowCtrl.goat.age}} year(s) old</h2>
+  <h2 ng-hide="editing">Color: {{goatsShowCtrl.goat.color}}</h2>
+  <h2 ng-hide="editing">Birth Date: {{goatsShowCtrl.goat.birthdate}}</h2>
+
+  <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Goat Info</button>
+  <button class='btn btn-success' ng-show="editing" ng-click="goatsShowCtrl.editGoat(goatsShowCtrl.goat); editing = false">Save Changes</button>
+  <hr>
+  <button ng-click="goatsShowCtrl.deleteGoat(goatsShowCtrl.goat)" class="btn btn-danger">Delete this GOAT! :( </button>
+  <a ng-href="/goats" class="btn btn-warning">Back</a>
 
 
-<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Goat Info</button>
-<button class='btn btn-success' ng-show="editing" ng-click="goatsShowCtrl.editGoat(goatsShowCtrl.goat); editing = false">Save Changes</button>
 <hr>
-<button ng-click="goatsShowCtrl.deleteGoat(goatsShowCtrl.goat)" class="btn btn-danger">Delete this GOAT! :( </button>
-<a ng-href="/goats" class="btn btn-warning">Back</a>
-
-
-<!-- Add:
-            goat picture
-            name
-            age
-            color
-            anything else you want
-          -->
-<!-- make sure there's a "back" button -->
+<h1>WHERE IS THIS GOAT????</h1>
+  <div class="row" ng-controller="GoatsMapController as goatsMapCtrl">
+    <ui-gmap-google-map center=goatsMapCtrl.mapCenter zoom=goatsMapCtrl.mapZoom>
+      <ui-gmap-marker coords="{latitude: goatsShowCtrl.goat.latitude, longitude: goatsShowCtrl.goat.longitude}" idkey="1">
+      <ui-gmap-window coords="{latitude: goatsShowCtrl.goat.latitude, longitude: goatsShowCtrl.goat.longitude}"></ui-gmap-window>
+    </ui-gmap-google-map>
+  </div>
 </div>

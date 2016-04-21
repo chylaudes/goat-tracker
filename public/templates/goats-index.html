@@ -39,4 +39,15 @@
     </form>
     <!-- CREATING A FORM FOR A NEW GOAT -->
   </div>
+  <hr>
+  <h1>WHERE ARE THESE GOATS??</h1>
+    <div class="row" ng-controller="GoatsMapController as goatsMapCtrl">
+      <ui-gmap-google-map center=goatsMapCtrl.mapCenter zoom=goatsMapCtrl.mapZoom dragging="false" options=goatsMapCtrl.options>
+          <ui-gmap-marker ng-repeat="goat in goatsMapCtrl.goats" coords="{latitude: goat.latitude, longitude: goat.longitude }" idkey="goat.id">
+          <ui-gmap-window coords="{latitude: goat.latitude, longitude: goat.longitude}" isIconVisibleOnClick= "true" >
+            {{goat.name}}
+          </ui-gmap-window>
+      </ui-gmap-google-map>
+    </div>
+  </div>
 </div><!-- END OF NG-CONTROLLER -->
