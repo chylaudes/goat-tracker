@@ -25,7 +25,7 @@ function GoatsShowController(   $http ,  $routeParams  , $location  ) {
     var birthDay = new Date(date)
     var ageDifs = Date.now() - birthDay.getTime();
     var ageDate = new Date(ageDifs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    return {year: Math.abs(ageDate.getUTCFullYear() - 1970), month: Math.abs((ageDate.getUTCMonth() %12) )};
   };
 
   vm.deleteGoat = function(goat) {
@@ -44,7 +44,8 @@ function GoatsShowController(   $http ,  $routeParams  , $location  ) {
   vm.editGoat = function(goat) {
     $http({
       method: 'PUT',
-      url: baseUrl + "/api/goats/" + goat.id
+      url: baseUrl + "/api/goats/" + goat.id,
+      data: goat
     }).then(function successCallback(json){
       //redirect_to index
     },function errorCallback(response){

@@ -7,7 +7,7 @@ function GoatsMapController(   $http  ) {
   var vm = this;
 
   vm.mapCenter = { latitude: 30.6928686, longitude: -9.8474607 };
-  vm.mapZoom = 10;
+  vm.mapZoom = 12;
   vm.options = {scrollwheel: false, panControl: false, draggable: false};
   vm.goats = []
 

@@ -5,7 +5,7 @@
   <input ng-show="editing" ng-model="goatsShowCtrl.goat.birthdate" type="text" class="form-control input-md">
   <input ng-show="editing" ng-model="goatsShowCtrl.goat.image_url" type="text" class="form-control input-md">
   <h1 ng-hide="editing">Name: {{goatsShowCtrl.goat.name}}</h1>
-  <h2 ng-hide="editing">Age: {{goatsShowCtrl.goat.age}} year(s) old</h2>
+  <h2 ng-hide="editing">Age: {{goatsShowCtrl.goat.age.year}} year(s) and {{goatsShowCtrl.goat.age.month}} month(s) old</h2>
   <h2 ng-hide="editing">Color: {{goatsShowCtrl.goat.color}}</h2>
   <h2 ng-hide="editing">Birth Date: {{goatsShowCtrl.goat.birthdate}}</h2>
 

@@ -5,7 +5,7 @@
     <label for="color">Searchy by Goat's Color:</label>
     <input type="text" class="form-control" placeholder="By Goat's color" ng-model="search.color">
     <label for="any">Searchy by any attribute:</label>
-    <input type="text" class="form-control" placeholder="New album artist" ng-model="search.$">
+    <input type="text" class="form-control" placeholder="By Goat's attributes" ng-model="search.$">
     <br>
     <div ng-repeat="goat in goatsIndexCtrl.goats | filter:search | orderBy: '+name'">
       <div class="thumbnail">
